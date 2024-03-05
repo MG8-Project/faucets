@@ -117,7 +117,7 @@ const Home = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               error={(!address || !isAddressValidate) && touched}
-              placeholder="CVTX Testnet address"
+              placeholder="Megalink Testnet address"
             />
             <Button
               disabled={!address || !isAddressValidate || loading}
@@ -145,9 +145,7 @@ const Home = () => {
         </div>
       </main>
       <footer className={styles.footer}>
-        <div className={styles.blank}></div>
-        <p>© 2023 CarrieVerse. All Rights Reserved</p>
-        <SnsButtons />
+        <p>© 2023 Megalink. All Rights Reserved</p>
       </footer>
     </>
   );
