@@ -1,0 +1,28 @@
+.button {
+  width: 240px;
+  height: 60px;
+  margin: 20px auto;
+  padding: 20px 36px;
+  border: 0;
+  border-radius: 100px;
+  background: linear-gradient(113.33deg, #000000 34.93%, #555555 97.4%);
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Rota';
+  font-weight: 700;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+@media (max-width: 1080px) {
+  .button {
+    width: 100%;
+    margin-top:0;
+  }
+}
+
+.button:disabled {
+  background: rgba(187, 187, 187, 0.4);
+  color: #bbb;
+  cursor: auto;
+}

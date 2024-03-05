@@ -1,0 +1,30 @@
+{
+  "name": "faucet",
+  "version": "0.1.0",
+  "description": "carrieverse token faucet",
+  "main": "index.js",
+  "repository": "https://github.com/imantisco/Faucet.git",
+  "author": "0xTopaz <myunghwan@imantisco.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "clean": "rimraf .next & rimraf node_modules"
+  },
+  "dependencies": {
+    "axios": "^1.3.4",
+    "eslint": "8.37.0",
+    "eslint-config-next": "13.2.4",
+    "ethers": "^6.2.3",
+    "next": "13.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-google-recaptcha": "^2.1.0",
+    "react-toastify": "^9.1.2"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.1"
+  }
+}
