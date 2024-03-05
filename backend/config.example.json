@@ -1,0 +1,21 @@
+{
+  "httpport": 3000,
+  "networks": {
+    "mumbai": {
+      "rpc": "",
+      "explorer": "",
+      "privateKey": "YOUR_PRIVATE_KEY",
+      "matic": {
+        "payoutamount": 0.0005,
+        "maxbalance": 1000000000000000
+      },
+      "tokens": {
+        "cvtx": {
+          "address": "",
+          "payoutamount": 0.0005,
+          "maxbalance": 1000000000000000
+        }
+      }
+    }
+  }
+}

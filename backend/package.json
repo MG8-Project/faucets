@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "description": "carrieverse token faucet",
+  "main": "index.js",
+  "repository": "https://github.com/imantisco/Faucet.git",
+  "author": "0xTopaz <myunghwan@imantisco.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@alch/alchemy-web3": "^1.4.7",
+    "axios": "^1.5.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "level": "^6.0.0",
+    "lodash": "^4.17.21",
+    "mkdirp": "^3.0.1",
+    "multer": "^1.4.5-lts.1",
+    "web3": "^1.10.1"
+  }
+}
