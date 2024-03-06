@@ -98,8 +98,8 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>CarrieVerse Testnet Faucet</title>
-        <meta name="description" content="CarrieVerse Testnet Faucet" />
+        <title>Megalink Testnet Faucet</title>
+        <meta name="description" content="Megalink Testnet Faucet" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
