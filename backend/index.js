@@ -3,17 +3,17 @@ const Web3 = require('web3');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const config = require('./config.json');
-const cvtx_abi = require('./abi/cvtx_abi.json');
+const mg8_abi = require('./abi/mg8_abi.json');
 const alchemy_web3 = require('@alch/alchemy-web3');
 
-const aWeb3 = alchemy_web3.createAlchemyWeb3(config.networks.mumbai.rpc);
+const aWeb3 = alchemy_web3.createAlchemyWeb3(config.networks.bscTestnet.rpc);
 
 const web3_provider = new Web3.providers.HttpProvider(
-  config.networks.mumbai.rpc
+  config.networks.bscTestnet.rpc
 );
 const web3 = new Web3(web3_provider);
 const account = web3.eth.accounts.privateKeyToAccount(
-  config.networks.mumbai.privateKey
+  config.networks.bscTestnet.privateKey
 );
 web3.eth.accounts.wallet.add(account);
 web3.eth.defaultAccount = account.address;
@@ -49,9 +49,9 @@ function startServer() {
     }
     console.log('client IP=', ip);
     res.status(200).json({
-      message: 'CarrieVerse Testnet Faucet',
-      network: config.networks.mumbai.name,
-      rpc: config.networks.mumbai.rpc,
+      message: 'Megalink Testnet Faucet',
+      network: config.networks.bscTestnet.name,
+      rpc: config.networks.bscTestnet.rpc,
     });
   });
 
@@ -62,10 +62,10 @@ function startServer() {
 
       if (isValidAddress(to)) {
         console.log(`to : ${to}`);
-        const contractAddress = config.networks.mumbai.tokens.cvtx.address;
-        const amount = config.networks.mumbai.tokens.cvtx.payoutamount;
+        const contractAddress = config.networks.bscTestnet.tokens.mg8.address;
+        const amount = config.networks.bscTestnet.tokens.mg8.payoutamount;
 
-        const contract = new web3.eth.Contract(cvtx_abi, contractAddress);
+        const contract = new web3.eth.Contract(mg8_abi, contractAddress);
         const amountWei = web3.utils.toWei(amount.toString(), 'ether');
         const tx = contract.methods.transfer(to, amountWei).encodeABI();
 
