@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "cross-env PORT=${PORT} next start",
     "lint": "next lint",
     "clean": "rimraf .next & rimraf node_modules"
   },
@@ -25,6 +25,7 @@
     "react-toastify": "^9.1.2"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "rimraf": "^5.0.1"
   }
 }
