@@ -1,25 +1,26 @@
-import React, { useState, useMemo, useRef } from 'react';
-import Head from 'next/head';
-import { Lexend } from 'next/font/google';
-import { ethers } from 'ethers';
-import { ToastContainer, toast, Zoom } from 'react-toastify';
-import axios from 'axios';
-import ReCAPTCHA from 'react-google-recaptcha';
-import styles from '@/styles/Home.module.css';
-import Input from '@/components/Input/Input';
-import Button from '@/components/Button/Button';
-import Logo from '@/components/Logo/Logo';
-import SnsButtons from '@/components/SNS-buttons/sns-buttons';
-import TitleWeb from '@/assets/title/title-web';
-import TitleMobile from '@/assets/title/title-mobile';
-
+import React, { useState, useMemo, useRef } from "react";
+import Head from "next/head";
+import { Lexend } from "next/font/google";
+import { ethers } from "ethers";
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
+import styles from "@/styles/Home.module.css";
+import Input from "@/components/Input/Input";
+import Button from "@/components/Button/Button";
+import Logo from "@/components/Logo/Logo";
+import SnsButtons from "@/components/SNS-buttons/sns-buttons";
+import megaLogo from "../../public/assets/images/Megalink.png";
+import TitleWeb from "@/assets/title/title-web";
+import TitleMobile from "@/assets/title/title-mobile";
+import MegaLogo from "@/components/Logo/MegeLogo";
 const lexend = Lexend({
-  subsets: ['latin'],
-  variable: '--lexend-font',
+  subsets: ["latin"],
+  variable: "--lexend-font",
 });
 
 const Home = () => {
-  const [address, setAddress] = useState('');
+  const [address, setAddress] = useState("");
   const [touched, setTouched] = useState(false);
   const [loading, setLoading] = useState(false);
   const [recaptcha, setRecaptcha] = useState(null);
@@ -40,7 +41,7 @@ const Home = () => {
   }, [address]);
 
   const reset = () => {
-    setAddress('');
+    setAddress("");
     setTouched(false);
     // setRecaptcha(null);
     // recaptchaRef.current.reset();
@@ -54,7 +55,7 @@ const Home = () => {
     setLoading(true);
 
     const params = new URLSearchParams();
-    params.append('to', address);
+    params.append("to", address);
 
     axios
       .post(`${process.env.NEXT_PUBLIC_BACKEND_ENDPOINT}/faucets`, params)
@@ -67,23 +68,23 @@ const Home = () => {
       })
       .catch((err) => {
         console.log(`err : ${JSON.stringify(err)}}`);
-        let errText = 'Faucet Fail';
-        if (typeof err.response == 'undefined' || err.response == null) {
-          errText = 'Unknown status';
+        let errText = "Faucet Fail";
+        if (typeof err.response == "undefined" || err.response == null) {
+          errText = "Unknown status";
         } else {
           switch (err.response.status) {
             case 400:
-              errText = 'Invalid request';
+              errText = "Invalid request";
               break;
             case 403:
-              errText = 'Too many requests';
+              errText = "Too many requests";
               break;
             case 404:
-              errText = 'Cannot connect to server';
+              errText = "Cannot connect to server";
               break;
             case 502:
             case 503:
-              errText = 'Faucet service temporary unavailable';
+              errText = "Faucet service temporary unavailable";
               break;
             default:
               errText = err.response.data || err.message;
@@ -101,10 +102,10 @@ const Home = () => {
         <title>Megalink Testnet Faucet</title>
         <meta name="description" content="Megalink Testnet Faucet" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="" />
       </Head>
       <header className={styles.header}>
-        <Logo />
+        <MegaLogo />
       </header>
       <main className={styles.main}>
         <div className={`${styles.center} ${lexend.variable}`}>
