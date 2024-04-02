@@ -15,8 +15,8 @@
   border-bottom: 1px solid rgba(221, 221, 221, 1);
   z-index: 1;
   padding: 0 20px 0 60px;
-  font-family: 'Rota';
-  color: rgba(0, 0, 0, 1);
+  font-family: "Rota";
+  color: rgb(255, 255, 255);
   margin-bottom: 4px;
   border-radius: 0px;
 }
@@ -27,7 +27,7 @@
   }
   .input {
     font-size: 18px;
-    padding: 0 10px 0 40px; 
+    padding: 0 10px 0 40px;
   }
 }
 
