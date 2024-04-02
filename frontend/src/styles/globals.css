@@ -194,9 +194,8 @@ body {
 }
 
 body {
-  background: url("../../public/assets/images/background.png");
+  background: url("../../public/assets/images/darkBackground.png");
   background-size: cover;
-  /* background-color: #092136; */
 }
 
 a {
