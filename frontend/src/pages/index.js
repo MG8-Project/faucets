@@ -8,9 +8,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import styles from "@/styles/Home.module.css";
 import Input from "@/components/Input/Input";
 import Button from "@/components/Button/Button";
-import Logo from "@/components/Logo/Logo";
 import SnsButtons from "@/components/SNS-buttons/sns-buttons";
-import megaLogo from "../../public/assets/images/Megalink.png";
 import TitleWeb from "@/assets/title/title-web";
 import TitleMobile from "@/assets/title/title-mobile";
 import MegaLogo from "@/components/Logo/MegeLogo";
@@ -109,8 +107,7 @@ const Home = () => {
       </header>
       <main className={styles.main}>
         <div className={`${styles.center} ${lexend.variable}`}>
-          <TitleWeb />
-          <TitleMobile />
+          <h1>Testnet Faucet!</h1>
           <p>Enter your wallet address to receive the payment</p>
           <div className={styles.container}>
             <Input

@@ -38,9 +38,9 @@
   font-size: 110px;
   z-index: 1;
   margin-bottom: 30px;
-  background-image: linear-gradient(92.41deg, #6C54F3 4.41%, #9B89FF 98.38%);
+  background-image: linear-gradient(92.41deg, #ffffff 4.41%, #ffffff 98.38%);
   letter-spacing: -0.02em;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 0px rgba(128, 128, 128, 0.4);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -49,7 +49,7 @@
   display: none;
 }
 
-@media (max-width:1080px) {
+@media (max-width: 1080px) {
   .center h1 {
     font-size: 58px;
   }
@@ -61,7 +61,7 @@
 
 .center > p {
   font-size: 18px;
-  color: rgba(85, 85, 85, 1);
+  color: rgb(255, 255, 255);
   margin-bottom: 80px;
 }
 
@@ -89,7 +89,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-family: 'Rota';
+  font-family: "Rota";
   font-size: 16px;
   text-align: center;
   width: 100%;
