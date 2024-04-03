@@ -61,6 +61,8 @@ function startServer() {
         const contract = new web3.eth.Contract(mg8_abi, contractAddress);
         const amountWei = web3.utils.toWei(amount.toString(), 'ether');
         const data = contract.methods.transfer(to, amountWei).encodeABI();
+        const gasLimit = config.networks.bscTestnet.gasLimit;
+        const gasPrice = config.networks.bscTestnet.gasPrice;
         const lnonce = await web3.eth.getTransactionCount(account.address, 'latest');
         const pnonce = await web3.eth.getTransactionCount(account.address, 'pending');
         let nonce = lnonce;
@@ -74,8 +76,8 @@ function startServer() {
           nonce: web3.utils.toHex(nonce),
           to: contractAddress,
           data: data,
-          gasLimit: web3.utils.toHex(20000),
-          gasPrice: web3.utils.toHex(web3.utils.toWei('10', 'gwei')),
+          gasLimit: web3.utils.toHex(Number(gasLimit)),
+          gasPrice: web3.utils.toHex(web3.utils.toWei(gasPrice, 'gwei')),
         };
 
         try {
