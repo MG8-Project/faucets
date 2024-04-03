@@ -1,0 +1,23 @@
+{
+  "httpport": 3000,
+  "networks": {
+    "bscTestnet": {
+      "rpc": "",
+      "explorer": "",
+      "privateKey": "YOUR_PRIVATE_KEY",
+      "gasLimit": "",
+      "gasPrice": "",
+      "matic": {
+        "payoutamount": 0.0005,
+        "maxbalance": 1000000000000000
+      },
+      "tokens": {
+        "mg8": {
+          "address": "",
+          "payoutamount": 0.0005,
+          "maxbalance": 1000000000000000
+        }
+      }
+    }
+  }
+}

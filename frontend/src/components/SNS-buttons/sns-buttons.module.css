@@ -1,0 +1,10 @@
+.box {
+  display: flex;
+  gap: 26px;
+}
+
+@media (max-width: 1080px) {
+  .box {
+    gap: 18px;
+  }
+}
