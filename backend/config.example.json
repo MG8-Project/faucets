@@ -5,6 +5,8 @@
       "rpc": "",
       "explorer": "",
       "privateKey": "YOUR_PRIVATE_KEY",
+      "gasLimit": "",
+      "gasPrice": "",
       "matic": {
         "payoutamount": 0.0005,
         "maxbalance": 1000000000000000
