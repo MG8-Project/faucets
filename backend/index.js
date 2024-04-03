@@ -8,13 +8,9 @@ const alchemy_web3 = require('@alch/alchemy-web3');
 
 const aWeb3 = alchemy_web3.createAlchemyWeb3(config.networks.bscTestnet.rpc);
 
-const web3_provider = new Web3.providers.HttpProvider(
-  config.networks.bscTestnet.rpc
-);
+const web3_provider = new Web3.providers.HttpProvider(config.networks.bscTestnet.rpc);
 const web3 = new Web3(web3_provider);
-const account = web3.eth.accounts.privateKeyToAccount(
-  config.networks.bscTestnet.privateKey
-);
+const account = web3.eth.accounts.privateKeyToAccount(config.networks.bscTestnet.privateKey);
 web3.eth.accounts.wallet.add(account);
 web3.eth.defaultAccount = account.address;
 
@@ -34,10 +30,7 @@ function startServer() {
   app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', '*');
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'X-requested-with,content-type'
-    );
+    res.setHeader('Access-Control-Allow-Headers', 'X-requested-with,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
   });
@@ -62,22 +55,32 @@ function startServer() {
 
       if (isValidAddress(to)) {
         console.log(`to : ${to}`);
+        const privateKey = config.networks.bscTestnet.privateKey;
         const contractAddress = config.networks.bscTestnet.tokens.mg8.address;
         const amount = config.networks.bscTestnet.tokens.mg8.payoutamount;
-
         const contract = new web3.eth.Contract(mg8_abi, contractAddress);
         const amountWei = web3.utils.toWei(amount.toString(), 'ether');
-        const tx = contract.methods.transfer(to, amountWei).encodeABI();
+        const data = contract.methods.transfer(to, amountWei).encodeABI();
+        const lnonce = await web3.eth.getTransactionCount(account.address, 'latest');
+        const pnonce = await web3.eth.getTransactionCount(account.address, 'pending');
+        let nonce = lnonce;
+        if (pnonce > nonce) {
+          console.log(`pending nonce : ${pnonce}`);
+          nonce = pnonce;
+        }
+        console.log(`nonce is : ${lnonce}`);
 
         const transaction = {
-          from: account.address,
+          nonce: web3.utils.toHex(nonce),
           to: contractAddress,
-          data: tx,
-          gas: 200000,
+          data: data,
+          gasLimit: web3.utils.toHex(20000),
+          gasPrice: web3.utils.toHex(web3.utils.toWei('10', 'gwei')),
         };
 
         try {
-          const receipt = await web3.eth.sendTransaction(transaction);
+          const signedTx = await web3.eth.accounts.signTransaction(transaction, privateKey);
+          const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
           console.log(`receipt.transactionHash : ${receipt.transactionHash}`);
           if (receipt.status === true) {
             res.status(200).json({
